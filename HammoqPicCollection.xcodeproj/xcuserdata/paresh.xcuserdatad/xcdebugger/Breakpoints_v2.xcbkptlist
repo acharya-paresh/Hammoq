@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "AB7A8F71-8EF4-4320-AD79-E9A2BE3BC43A"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8F3BB8BA-8487-4540-AAB1-3C44A61612D2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HammoqPicCollection/Classes/Controller/PhotoCollectionBaseViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "editButtonAction(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8F3BB8BA-8487-4540-AAB1-3C44A61612D2 - af76dea95a4803e9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Bool) -&gt; () in HammoqPicCollection.PhotoCollectionBaseViewController.editButtonAction(Any) -&gt; ()"
+                  moduleName = "HammoqPicCollection"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paresh/Desktop/HammoqPicCollection/HammoqPicCollection/Classes/Controller/PhotoCollectionBaseViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "142">
+               </Location>
+               <Location
+                  uuid = "8F3BB8BA-8487-4540-AAB1-3C44A61612D2 - 750c57d5037b3574"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Int) -&gt; () in closure #2 (Swift.Bool) -&gt; () in HammoqPicCollection.PhotoCollectionBaseViewController.editButtonAction(Any) -&gt; ()"
+                  moduleName = "HammoqPicCollection"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paresh/Desktop/HammoqPicCollection/HammoqPicCollection/Classes/Controller/PhotoCollectionBaseViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BFD198F6-9ED1-40CE-9C2A-910AFE8D9ADF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HammoqPicCollection/Classes/Network/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "deleteImages(imageIds:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B4C73DA2-0C24-4525-BF38-B4EA2158DCDB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HammoqPicCollection/Classes/Network/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "deleteImages(imageIds:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3RF-Ha-Tuh">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Title-->
+        <scene sceneID="3M0-fX-3Dz">
+            <objects>
+                <viewController id="3RF-Ha-Tuh" customClass="PhotoCollectionBaseViewController" customModule="HammoqPicCollection" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Gx-4R-88S">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Fcl-4V-Sh1">
+                                <rect key="frame" x="10" y="44" width="394" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LjZ-3W-RoM">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="3RF-Ha-Tuh" id="Kb7-5A-HPu"/>
+                                    <outlet property="delegate" destination="3RF-Ha-Tuh" id="eqY-j8-4Ur"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rLP-Ft-JBI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rLP-Ft-JBI" firstAttribute="bottom" secondItem="Fcl-4V-Sh1" secondAttribute="bottom" id="A9r-DG-76M"/>
+                            <constraint firstItem="Fcl-4V-Sh1" firstAttribute="leading" secondItem="rLP-Ft-JBI" secondAttribute="leading" constant="10" id="OPj-g0-J9N"/>
+                            <constraint firstItem="Fcl-4V-Sh1" firstAttribute="top" secondItem="rLP-Ft-JBI" secondAttribute="top" id="QDn-Zx-YCa"/>
+                            <constraint firstItem="rLP-Ft-JBI" firstAttribute="trailing" secondItem="Fcl-4V-Sh1" secondAttribute="trailing" constant="10" id="c4h-f6-pbU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="zRF-pk-rmP">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="PWj-Zt-M8w">
+                            <connections>
+                                <action selector="editButtonAction:" destination="3RF-Ha-Tuh" id="n8h-8g-bDH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editBarButtonItem" destination="PWj-Zt-M8w" id="qDT-Ni-kOO"/>
+                        <outlet property="photoCollectionView" destination="Fcl-4V-Sh1" id="QiY-7d-O32"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7E3-ox-0kL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="155" y="156"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
