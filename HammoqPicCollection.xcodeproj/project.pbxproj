@@ -10,6 +10,7 @@
 		6611FBFB264185CE00123F23 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6611FBFA264185CE00123F23 /* NetworkManager.swift */; };
 		66705B0B2642784600B8FDCA /* ImageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66705B0A2642784600B8FDCA /* ImageObject.swift */; };
 		66705B0F2642A88500B8FDCA /* PhotoCollectionBaseViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66705B0E2642A88500B8FDCA /* PhotoCollectionBaseViewController+Extension.swift */; };
+		66705B162642C06000B8FDCA /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66705B152642C06000B8FDCA /* PhotoDetailViewController.swift */; };
 		66EC34B92641542800CB3910 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EC34B82641542800CB3910 /* AppDelegate.swift */; };
 		66EC34BB2641542800CB3910 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EC34BA2641542800CB3910 /* SceneDelegate.swift */; };
 		66EC34C02641542800CB3910 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EC34BE2641542800CB3910 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		6611FBFA264185CE00123F23 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		66705B0A2642784600B8FDCA /* ImageObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageObject.swift; sourceTree = "<group>"; };
 		66705B0E2642A88500B8FDCA /* PhotoCollectionBaseViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoCollectionBaseViewController+Extension.swift"; sourceTree = "<group>"; };
+		66705B152642C06000B8FDCA /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		66EC34B52641542800CB3910 /* HammoqPicCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HammoqPicCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EC34B82641542800CB3910 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66EC34BA2641542800CB3910 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			children = (
 				66EC34D526415CEB00CB3910 /* PhotoCollectionBaseViewController.swift */,
 				66705B0E2642A88500B8FDCA /* PhotoCollectionBaseViewController+Extension.swift */,
+				66705B152642C06000B8FDCA /* PhotoDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				6611FBFB264185CE00123F23 /* NetworkManager.swift in Sources */,
 				66EC34DC26415E7F00CB3910 /* PhotoCollectionCell.swift in Sources */,
 				66705B0F2642A88500B8FDCA /* PhotoCollectionBaseViewController+Extension.swift in Sources */,
+				66705B162642C06000B8FDCA /* PhotoDetailViewController.swift in Sources */,
 				66EC34D626415CEB00CB3910 /* PhotoCollectionBaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

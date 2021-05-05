@@ -2,13 +2,14 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3RF-Ha-Tuh">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Title-->
+        <!--Hammoq Collection-->
         <scene sceneID="3M0-fX-3Dz">
             <objects>
                 <viewController id="3RF-Ha-Tuh" customClass="PhotoCollectionBaseViewController" customModule="HammoqPicCollection" customModuleProvider="target" sceneMemberID="viewController">
@@ -41,7 +42,7 @@
                             <constraint firstItem="rLP-Ft-JBI" firstAttribute="trailing" secondItem="Fcl-4V-Sh1" secondAttribute="trailing" constant="10" id="c4h-f6-pbU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="zRF-pk-rmP">
+                    <navigationItem key="navigationItem" title="Hammoq Collection" id="zRF-pk-rmP">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="PWj-Zt-M8w">
                             <connections>
                                 <action selector="editButtonAction:" destination="3RF-Ha-Tuh" id="n8h-8g-bDH"/>
@@ -56,6 +57,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7E3-ox-0kL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="155" y="156"/>
+        </scene>
+        <!--Photo Detail View Controller-->
+        <scene sceneID="5hg-7D-aZ8">
+            <objects>
+                <viewController storyboardIdentifier="photoDetailViewController" id="y8W-yf-neL" customClass="PhotoDetailViewController" customModule="HammoqPicCollection" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NJ6-r4-iJJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WYD-xN-GJS">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oqo-BK-omR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oqo-BK-omR" firstAttribute="trailing" secondItem="WYD-xN-GJS" secondAttribute="trailing" id="OCp-oZ-bTJ"/>
+                            <constraint firstItem="WYD-xN-GJS" firstAttribute="leading" secondItem="oqo-BK-omR" secondAttribute="leading" id="dcD-yW-SAS"/>
+                            <constraint firstItem="WYD-xN-GJS" firstAttribute="top" secondItem="oqo-BK-omR" secondAttribute="top" id="wB8-tR-yt3"/>
+                            <constraint firstItem="oqo-BK-omR" firstAttribute="bottom" secondItem="WYD-xN-GJS" secondAttribute="bottom" id="ypA-oc-fpo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="WYD-xN-GJS" id="ViR-9Q-ulU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z5M-sq-x4J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="926" y="191"/>
         </scene>
     </scenes>
     <resources>

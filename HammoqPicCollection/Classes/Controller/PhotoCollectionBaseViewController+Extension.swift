@@ -37,6 +37,18 @@ extension PhotoCollectionBaseViewController: UICollectionViewDelegate, UICollect
         guard let cell = collectionView.cellForItem(at: indexPath) as? PhotoCollectionCell else {
             return
         }
+        if !isEditingMode {
+            if let detailViewController = self.getDetailViewController(), let image = cell.cellImage.image {
+                detailViewController.loadView()
+                detailViewController.imageView.image = image
+                detailViewController.imageView.contentMode = .scaleAspectFit
+                self.navigationController?.pushViewController(detailViewController, animated: true)
+            } else {
+                _ = self.showAlert(title: "", message: "Image Downloading inprogress...", actions: ["Ok"]) { (_) in
+                }
+            }
+            return
+        }
         if selectedImageArray.contains(where: {$0.image_id == cell.imageObject?.image_id}) {
             selectedImageArray.removeAll(where: {$0.image_id == cell.imageObject?.image_id})
             cell.checkMark.setImageColor(color: UIColor.gray)
@@ -68,7 +80,9 @@ extension PhotoCollectionBaseViewController: UIImagePickerControllerDelegate {
         if currentOperationType == OperationType.UPDATE {
             NetworkManager().deleteImage(imageId: (selectedImageArray.first?.image_id)!) { (isSuccess) in
                 NetworkManager().uploadImage(image: image) { (isSuccess) in
-                    self.view.isUserInteractionEnabled = true
+                    DispatchQueue.main.async {
+                        self.view.isUserInteractionEnabled = true
+                    }
                     var message = "Image updated Successfully"
                     if isSuccess == false {
                         message = "Error in image update"
@@ -82,7 +96,9 @@ extension PhotoCollectionBaseViewController: UIImagePickerControllerDelegate {
             }
         } else {
             NetworkManager().uploadImage(image: image) { (isSuccess) in
-                self.view.isUserInteractionEnabled = true
+                DispatchQueue.main.async {
+                    self.view.isUserInteractionEnabled = true
+                }
                 var message = "Uploaded Successfully"
                 if isSuccess == false {
                     message = "Error in upload"

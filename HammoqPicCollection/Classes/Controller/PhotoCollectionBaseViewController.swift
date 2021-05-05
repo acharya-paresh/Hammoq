@@ -91,6 +91,7 @@ class PhotoCollectionBaseViewController: UIViewController, UINavigationControlle
         
         let actionSheet = UIAlertController(title: "", message: "Edit mode", preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Add Image", style: UIAlertAction.Style.default, handler: { (action) in
+            self.isEditingMode = true
             self.currentOperationType = OperationType.ADD
             self.addAction()
         }))
@@ -224,5 +225,11 @@ class PhotoCollectionBaseViewController: UIViewController, UINavigationControlle
         DispatchQueue.main.async {
             self.photoCollectionView.reloadData()
         }
+    }
+    
+    func getDetailViewController() -> PhotoDetailViewController? {
+        let storyboard = UIStoryboard(name: PhotoDetailViewController.storyboardName, bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: PhotoDetailViewController.storyBoardIdentifier) as? PhotoDetailViewController
+        return viewController
     }
 }
