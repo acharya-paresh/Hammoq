@@ -143,7 +143,21 @@ class NetworkManager {
         
         dataTask = urlSession.dataTask(with: urlReq, completionHandler: { (data, response, error) in
             // my code
+            if(error != nil){
+                completion(false)
+                print("\(error!)")
+            }
             
+            guard let responseData = data else {
+                print("no response data")
+                completion(false)
+                return
+            }
+            
+            if let responseString = String(data: responseData, encoding: .utf8) {
+                print("deleted to: \(responseString)")
+                completion(true)
+            }
         })
         dataTask?.resume()
     }

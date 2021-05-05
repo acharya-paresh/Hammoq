@@ -44,6 +44,9 @@ extension PhotoCollectionBaseViewController: UICollectionViewDelegate, UICollect
             selectedImageArray.append(cell.imageObject!)
             cell.checkMark.setImageColor(color: UIColor.red)
         }
+        if currentOperationType == OperationType.UPDATE {
+            self.addAction()
+        }
     }
 }
 
@@ -61,14 +64,33 @@ extension PhotoCollectionBaseViewController: UIImagePickerControllerDelegate {
         
         FileManager.default.createFile(atPath: filePath, contents: imageData, attributes: nil)
         FileManager.default.fileExists(atPath: filePath)
-        NetworkManager().uploadImage(image: image) { (isSuccess) in
-            var message = "Uploaded Successfully"
-            if isSuccess == false {
-                message = "Error in upload"
+        isEditingMode = false
+        if currentOperationType == OperationType.UPDATE {
+            NetworkManager().deleteImage(imageId: (selectedImageArray.first?.image_id)!) { (isSuccess) in
+                NetworkManager().uploadImage(image: image) { (isSuccess) in
+                    self.view.isUserInteractionEnabled = true
+                    var message = "Image updated Successfully"
+                    if isSuccess == false {
+                        message = "Error in image update"
+                    }
+                    _ = self.showAlert(title: "", message: message, actions: ["Ok"]) { (_) in
+                        if isSuccess {
+                            self.getImages()
+                        }
+                    }
+                }
             }
-            _ = self.showAlert(title: "", message: message, actions: ["Ok"]) { (_) in
-                if isSuccess {
-                    self.refreshScreen()
+        } else {
+            NetworkManager().uploadImage(image: image) { (isSuccess) in
+                self.view.isUserInteractionEnabled = true
+                var message = "Uploaded Successfully"
+                if isSuccess == false {
+                    message = "Error in upload"
+                }
+                _ = self.showAlert(title: "", message: message, actions: ["Ok"]) { (_) in
+                    if isSuccess {
+                        self.getImages()
+                    }
                 }
             }
         }
@@ -77,8 +99,13 @@ extension PhotoCollectionBaseViewController: UIImagePickerControllerDelegate {
     }
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        
+        picker.dismiss(animated: true) {
+            self.view.isUserInteractionEnabled = true
+            self.currentOperationType = OperationType.NONE
+        }
     }
+    
+    
 }
 
 extension UIViewController {

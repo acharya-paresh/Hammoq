@@ -9,6 +9,13 @@ import Foundation
 import UIKit
 import AVFoundation
 
+enum OperationType: String {
+    case ADD
+    case UPDATE
+    case DELETE
+    case NONE
+}
+
 class PhotoCollectionBaseViewController: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet weak var photoCollectionView: UICollectionView!
@@ -27,6 +34,8 @@ class PhotoCollectionBaseViewController: UIViewController, UINavigationControlle
             print(isEditing)
         }
     }
+    
+    var currentOperationType = OperationType.NONE
     var selectedImageArray = [ImageObject]()
     var editButton = UIButton()
     
@@ -39,7 +48,9 @@ class PhotoCollectionBaseViewController: UIViewController, UINavigationControlle
     }
     
     func getImages() {
+//        isEditingMode = false
         NetworkManager().downloadImge { (result, error) in
+            self.currentOperationType = OperationType.NONE
             guard error == nil else {
                 // show alert
                 return
@@ -66,32 +77,41 @@ class PhotoCollectionBaseViewController: UIViewController, UINavigationControlle
                     if isSuccess == false {
                         message = "Error in deletion"
                     }
+                    self.selectedImageArray.removeAll()
                     _ = self.showAlert(title: "", message: message, actions: ["Ok"]) { (_) in
-                        self.refreshScreen()
+                        self.getImages()
                     }
                 }
+            } else {
+                self.refreshScreen()
             }
+            
             return
         }
         
         let actionSheet = UIAlertController(title: "", message: "Edit mode", preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Add Image", style: UIAlertAction.Style.default, handler: { (action) in
+            self.currentOperationType = OperationType.ADD
             self.addAction()
         }))
         
         actionSheet.addAction(UIAlertAction(title: "Modify Image", style: .default, handler: { (action) in
             self.isEditingMode = true
+            self.currentOperationType = OperationType.UPDATE
             self.refreshScreen()
             actionSheet.dismiss(animated: true, completion: nil)
         }))
         
         actionSheet.addAction(UIAlertAction(title: "Delete Image", style: .default, handler: { (action) in
             self.isEditingMode = true
+            self.currentOperationType = OperationType.DELETE
             self.refreshScreen()
             actionSheet.dismiss(animated: true, completion: nil)
         }))
         
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+            self.currentOperationType = OperationType.NONE
+        }))
 
         self.present(actionSheet, animated: true, completion: nil)
     }
